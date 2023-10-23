@@ -1,7 +1,9 @@
+package com.servlets;
 import java.io.IOException;
 import java.time.LocalDate;
 import com.fasterxml.jackson.databind.ObjectMapper;
 import com.sc.controladores.InscripcionController;
+import com.sc.controladores.SalidaController;
 import com.sc.datatypes.dataSalida;
 import com.sc.entidades.salida;
 import com.sc.excepciones.ParametrosInvalidosExcepcion;
@@ -9,7 +11,7 @@ import com.sc.excepciones.UsuarioNoExisteExcepcion;
 import com.sc.excepciones.UsuarioYaExisteExcepcion;
 import com.sc.interfaces.IInscripcionController;
 import jakarta.servlet.ServletException;
-import jakarta.servlet.annotation.WebServlet;
+import jakarta.servlet.annotation.WebServlet; 
 import jakarta.servlet.http.HttpServlet;
 import jakarta.servlet.http.HttpServletRequest;
 import jakarta.servlet.http.HttpServletResponse;
@@ -18,10 +20,15 @@ import com.sc.interfaces.ISalidaController;
 @WebServlet("/inscripcion")
 public class InscripcionServlet extends HttpServlet {
     private IInscripcionController inscripcionController;
+    private ISalidaController salidaController;   
     private ObjectMapper objectMapper = new ObjectMapper();
 
     public InscripcionServlet() {
         inscripcionController = new InscripcionController();
+    }
+    
+    public void salidaServlet(){
+        salidaController = new SalidaController();  
     }
 
     
@@ -60,13 +67,12 @@ public class InscripcionServlet extends HttpServlet {
     }
 
     private void calcularCosto(HttpServletRequest request, HttpServletResponse response) throws IOException {
-        try {
-            dataSalida nombreSalida = inscripcionController.nameSalida(request.getParameter("nombreSalida"));
+        try {   
+            salida nombreSalida = inscripcionController.convertToSalida(request.getParameter("nombreSalida"));
             String nombreActividad = request.getParameter("nombreActividad");
             int cantidad = Integer.parseInt(request.getParameter("cant"));
 
             int costo = inscripcionController.calcularCosto(nombreSalida, nombreActividad, cantidad);
-
             response.setStatus(HttpServletResponse.SC_OK);
             response.getWriter().write("El costo calculado es: " + costo);
         } catch (NumberFormatException e) {

@@ -24,6 +24,10 @@ import com.sc.manejadores.UsuarioManejador;
 import com.sc.utilidades.log;
 
 public class InscripcionController implements IInscripcionController {
+    
+        SalidaController salidaController = new SalidaController();  
+    
+            
 	public void crearInscripcion(LocalDate fecha, int cant, String nickName, String nombreSalida, String nombreAct)
 			throws ParametrosInvalidosExcepcion, UsuarioYaExisteExcepcion, UsuarioNoExisteExcepcion {
 
@@ -120,8 +124,21 @@ public class InscripcionController implements IInscripcionController {
 	}
 
     @Override
-    public dataSalida nameSalida(String name) {
-        return mostrarDatosSalida(name);
+    public salida convertToSalida(String name){
+    salida sald = new salida();
+      List<dataSalida> salidas = salidaController.getAllSalidas(); // Implemente este método para obtener los objetos 'salida'.
+
+    for (dataSalida salidaObj : salidas) {
+    sald.setNombre(salidaObj.getNombre());
+    sald.setCapacidad(salidaObj.getCapacidad());
+    sald.setFechaAlta(salidaObj.getFechaAlta());
+    sald.setFechaSalida(salidaObj.getFechaSalida());
+    sald.setLugarSalida(salidaObj.getLugarSalida());  
+        if (sald.getNombre().equals(name)) {
+            return sald; // Se encontró el objeto 'salida' con el nombre coincidente.
+        }
     }
 
+    return null; // Devuelva nulo si no se encontró un objeto 'salida' con el nombre coincidente.
+}
 }
