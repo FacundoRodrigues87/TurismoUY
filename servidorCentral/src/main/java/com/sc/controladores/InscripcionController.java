@@ -6,8 +6,8 @@ import java.util.List;
 import javax.persistence.EntityManager;
 import javax.persistence.EntityManagerFactory;
 import javax.persistence.EntityTransaction;
-
 import com.sc.EMFactory;
+import com.sc.datatypes.dataSalida;
 import com.sc.entidades.actividad;
 import com.sc.entidades.inscripcion;
 import com.sc.entidades.salida;
@@ -118,5 +118,10 @@ public class InscripcionController implements IInscripcionController {
 		em.close();
 		return costo;
 	}
+
+    @Override
+    public dataSalida nameSalida(String name) {
+        return mostrarDatosSalida(name);
+    }
 
 }
