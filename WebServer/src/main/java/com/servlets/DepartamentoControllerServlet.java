@@ -20,6 +20,14 @@ public class DepartamentoControllerServlet extends HttpServlet {
         if (action == null) {
             response.getWriter().write("Action is null.");
         }
+        
+        /**
+ * Caso de uso: Listar Departamentos
+ * @implNote Permite obtener una lista de todos los departamentos registrados en el sistema.
+ * @return JSON - Devuelve una lista de datos de departamentos en formato JSON.
+ */
+
+        
         case "listarDepartamentos":
                 List<dataDepartamento> departamentos = controller.listarDepartamentos();
                 JSONArray jsonArray = new JSONArray();
@@ -61,6 +69,15 @@ public class DepartamentoControllerServlet extends HttpServlet {
             response.getWriter().write("Action is null.");
             return;
         }
+
+/**
+ * Caso de uso: Crear Departamento
+ * @implNote Permite crear un nuevo departamento en el sistema.
+ * @param nombre String (único) - El nombre del departamento.
+ * @param descripcion String - La descripción del departamento.
+ * @param url String - La URL asociada al departamento.
+ * @return JSON - Devuelve un mensaje de éxito o un mensaje de error en formato JSON.
+ */
 
         switch (action) {
             case "crearDepartamento":

@@ -41,6 +41,17 @@ public class SalidaServlet extends HttpServlet {
         }
     }
 
+    /**
+ * Caso de uso: Creación de Salida
+ * @implNote Permite crear una nueva salida en el sistema.
+ * @param nombre String (único) - El nombre de la salida.
+ * @param capacidad int - La capacidad de la salida.
+ * @param fechaAlta LocalDate - La fecha de alta de la salida.
+ * @param fechaSalida LocalDate - La fecha de la salida.
+ * @param lugarSalida String - El lugar de salida.
+ * @param nombreActividad String - El nombre de la actividad asociada a la salida.
+ */
+    
     private void crearSalida(HttpServletRequest request, HttpServletResponse response) throws IOException {
         try {
             String nombre = request.getParameter("nombre");
@@ -59,6 +70,13 @@ public class SalidaServlet extends HttpServlet {
             response.getWriter().write("Error al crear la salida: " + e.getMessage());
         }
     }
+    
+    /**
+ * Caso de uso: Mostrar Datos de Salida
+ * @implNote Permite consultar la información de una salida específica.
+ * @param nombreSalida String - El nombre de la salida a consultar.
+ * @return JSON - Devuelve los datos de la salida en formato JSON.
+ */
 
     private void mostrarDatosSalida(HttpServletRequest request, HttpServletResponse response) throws IOException {
         String nombreSalida = request.getParameter("nombreSalida");
@@ -67,6 +85,13 @@ public class SalidaServlet extends HttpServlet {
         response.getWriter().write(objectMapper.writeValueAsString(data));
     }
 
+    
+    /**
+ * Caso de uso: Obtener Todas las Salidas
+ * @implNote Permite obtener una lista de todas las salidas registradas en el sistema.
+ * @return JSON - Devuelve una lista de datos de salidas en formato JSON.
+ */
+    
     private void getAllSalidas(HttpServletRequest request, HttpServletResponse response) throws IOException {
         List<dataSalida> data = salidaController.getAllSalidas();
 

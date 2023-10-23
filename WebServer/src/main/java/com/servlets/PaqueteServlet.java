@@ -26,6 +26,13 @@ public class PaqueteServlet extends HttpServlet {
         String action = request.getParameter("action");
         ObjectMapper objectMapper = new ObjectMapper();
 
+        /**
+ * Caso de uso: Mostrar Información de Paquete
+ * @implNote Permite consultar la información detallada de un paquete en el sistema.
+ * @param nombre String - El nombre del paquete a consultar.
+ * @return JSON - Devuelve los datos del paquete en formato JSON.
+ */
+        
         if(action.equalsIgnoreCase("mostrarInfo")) {
             String nombre = request.getParameter("nombre");
             try {
@@ -34,6 +41,13 @@ public class PaqueteServlet extends HttpServlet {
             } catch (Exception e) {
                 response.getWriter().write(objectMapper.writeValueAsString(e.getMessage()));
             }
+            
+            /**
+ * Caso de uso: Listar Paquetes
+ * @implNote Permite obtener una lista de todos los paquetes registrados en el sistema.
+ * @return JSON - Devuelve una lista de datos de paquetes en formato JSON.
+ */
+            
         } else if(action.equalsIgnoreCase("listarPaquetes")) {
             try {
                 List<dataPaquete> paquetes = controller.listarPaquetes();
@@ -41,6 +55,14 @@ public class PaqueteServlet extends HttpServlet {
             } catch (Exception e) {
                 response.getWriter().write(objectMapper.writeValueAsString(e.getMessage()));
             }
+            
+            /**
+ * Caso de uso: Obtener Nombres de Paquetes
+ * @implNote Permite obtener una lista de nombres de todos los paquetes registrados en el sistema.
+ * @return JSON - Devuelve una lista de nombres de paquetes en formato JSON.
+ */
+
+            
         } else if(action.equalsIgnoreCase("nombresPaquetes")) {
             try {
                 List<String> nombresPaquetes = controller.obtenerNombresPaquetes();
@@ -55,6 +77,17 @@ public class PaqueteServlet extends HttpServlet {
         String action = request.getParameter("action");
         ObjectMapper objectMapper = new ObjectMapper();
 
+        /**
+ * Caso de uso: Crear Paquete
+ * @implNote Permite crear un nuevo paquete en el sistema.
+ * @param nombre String (único) - El nombre del paquete.
+ * @param descripcion String - La descripción del paquete.
+ * @param periodoVal int - El período de validez del paquete en días.
+ * @param descuento int - El descuento aplicado al paquete.
+ * @param fechaAlta LocalDate - La fecha de alta del paquete.
+ * @return JSON - Devuelve un mensaje de éxito o un mensaje de error en formato JSON.
+ */
+        
         if(action.equalsIgnoreCase("crearPaquete")) {
             String nombre = request.getParameter("nombre");
             String descripcion = request.getParameter("descripcion");
@@ -68,6 +101,15 @@ public class PaqueteServlet extends HttpServlet {
             } catch (Exception e) {
                 response.getWriter().write(objectMapper.writeValueAsString(e.getMessage()));
             }
+            
+            /**
+ * Caso de uso: Agregar Actividad a Paquete
+ * @implNote Permite agregar una actividad específica a un paquete existente en el sistema.
+ * @param nombrePaquete String - El nombre del paquete al que se agregará la actividad.
+ * @param nombreActividad String - El nombre de la actividad a agregar al paquete.
+ * @return JSON - Devuelve un mensaje de éxito o un mensaje de error en formato JSON.
+ */
+            
         } else if(action.equalsIgnoreCase("agregarActividadPaquete")) {
             String nombrePaquete = request.getParameter("nombrePaquete");
             String nombreActividad = request.getParameter("nombreActividad");            

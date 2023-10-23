@@ -26,6 +26,12 @@ public class UserServlet extends HttpServlet {
 
     }
 
+    /**
+ * Caso de uso: Consulta de usuario
+ * @implNote Permite consultar la información de un usuario registrado en el sistema.
+ * @param nickname String (único) - El apodo del usuario a consultar.
+ */
+    
     protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
         String action = request.getParameter("action");
         String nickname = request.getParameter("nickname");
@@ -53,6 +59,19 @@ public class UserServlet extends HttpServlet {
             out.println("Error al realizar la acción: " + e.getMessage());
         }
     }
+
+    /**
+ * Caso de uso: Alta de usuario
+ * @implNote Permite registrar un nuevo usuario en el sistema.
+ * @param nickname String (único) - El apodo del usuario.
+ * @param nombre String - El nombre del usuario.
+ * @param apellido String - El apellido del usuario.
+ * @param email String (único) - La dirección de correo electrónico del usuario.
+ * @param nacionalidad String - La nacionalidad del usuario.
+ * @param nacimiento LocalDate - La fecha de nacimiento del usuario.
+ * @param descripcion String (solo para proveedores) - Una descripción adicional (solo para proveedores).
+ * @param url String (solo para proveedores) - URL del proveedor (solo para proveedores).
+ */
 
     protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
         String action = request.getParameter("action");

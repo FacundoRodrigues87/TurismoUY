@@ -40,6 +40,17 @@ public class InscripcionServlet extends HttpServlet {
         }
     }
 
+    /**
+ * Caso de uso: Crear Inscripción
+ * @implNote Permite a un turista crear una inscripción en una salida con una actividad específica.
+ * @param fecha LocalDate - La fecha de la inscripción.
+ * @param cantidad int - La cantidad de inscripciones a crear.
+ * @param nombreTurista String - El nombre del turista que realiza la inscripción.
+ * @param nombreSalida String - El nombre de la salida a la que se inscribe.
+ * @param nombreActividad String - El nombre de la actividad a la que se inscribe.
+ * @return JSON - Devuelve un mensaje de éxito o un mensaje de error en formato JSON.
+ */
+    
      private void crearInscripcion(HttpServletRequest request, HttpServletResponse response) throws IOException {
         try {
             LocalDate fecha = LocalDate.parse(request.getParameter("fecha"));
@@ -66,6 +77,15 @@ public class InscripcionServlet extends HttpServlet {
         }
     }
 
+    /**
+ * Caso de uso: Calcular Costo de Inscripción
+ * @implNote Permite calcular el costo total de una inscripción en una salida con una actividad específica.
+ * @param nombreSalida String - El nombre de la salida.
+ * @param nombreActividad String - El nombre de la actividad.
+ * @param cantidad int - La cantidad de inscripciones.
+ * @return JSON - Devuelve el costo calculado en formato JSON.
+ */
+    
     private void calcularCosto(HttpServletRequest request, HttpServletResponse response) throws IOException {
         try {   
             salida nombreSalida = inscripcionController.convertToSalida(request.getParameter("nombreSalida"));
