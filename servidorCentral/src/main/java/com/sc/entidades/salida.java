@@ -33,7 +33,7 @@ public class salida {
         // Constructor vacío requerido por JPA
     }
 
-    public salida(String nombre, int capacidad, LocalDate fechaAlta, LocalDate fechaSalida, String lugarSalida) {
+    public salida(String nombre, int capacidad, LocalDate fechaAlta, LocalDate fechaSalida, String lugarSalida, ArrayList<Object> arrayList) {
         this.nombreS = nombre;
         this.capacidad = capacidad;
         this.fechaAlta = fechaAlta;

@@ -29,7 +29,7 @@ public class paquete {
 	
 	public paquete() {};
 
-	public paquete(String nombre, int descuento, String descripcion, int validez, LocalDate fechaAlta) {
+	public paquete(String nombre, int descuento, String descripcion, LocalDate fechaAlta) {
 		super();
 		this.nombre = nombre;
 		this.descuento = descuento;

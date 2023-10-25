@@ -82,4 +82,8 @@ public class inscripcion {
     public void setSalida(salida salida) {
         this.salida = salida;
     }
+
+    public void setActividad(actividad actividad1) {
+        throw new UnsupportedOperationException("Not supported yet."); // Generated from nbfs://nbhost/SystemFileSystem/Templates/Classes/Code/GeneratedMethodBody
+    }
 }

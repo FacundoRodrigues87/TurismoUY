@@ -17,7 +17,7 @@ public class departamento {
 	// Constructor vacio pedido por JPA.
 	public departamento() {};
 
-	public departamento(String nombre, String descripcion, String url) {
+	public departamento(String nombre, String descripcion, String url, ArrayList<Object> arrayList) {
 		super();
 		this.nombre = nombre;
 		this.descripcion = descripcion;

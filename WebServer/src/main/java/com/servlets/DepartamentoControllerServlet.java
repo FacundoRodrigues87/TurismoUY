@@ -1,6 +1,9 @@
 package com.servlets;
 
 import com.sc.controladores.DepartamentoController;
+import com.sc.datatypes.dataDepartamento;
+import com.sc.excepciones.ParametrosInvalidosExcepcion;
+import com.sc.excepciones.UsuarioYaExisteExcepcion;
 import java.io.IOException;
 import com.sc.interfaces.IDepartamentoController;
 import jakarta.servlet.ServletException;
@@ -8,10 +11,16 @@ import jakarta.servlet.annotation.WebServlet;
 import jakarta.servlet.http.HttpServlet;
 import jakarta.servlet.http.HttpServletRequest;
 import jakarta.servlet.http.HttpServletResponse;
+import java.util.List;
+import java.util.logging.Level;
+import java.util.logging.Logger;
+import org.json.JSONArray;
+import org.json.JSONException;
+import org.json.JSONObject;
 
 @WebServlet("/DepartamentoControllerServlet")
 public class DepartamentoControllerServlet extends HttpServlet {
-    private static final long serialVersionUID = 1L;
+private static final long serialVersionUID = 1L;
     IDepartamentoController controller = new DepartamentoController();
 
     protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
@@ -27,7 +36,7 @@ public class DepartamentoControllerServlet extends HttpServlet {
  * @return JSON - Devuelve una lista de datos de departamentos en formato JSON.
  */
 
-        
+        switch (action){
         case "listarDepartamentos":
                 List<dataDepartamento> departamentos = controller.listarDepartamentos();
                 JSONArray jsonArray = new JSONArray();
@@ -53,14 +62,14 @@ public class DepartamentoControllerServlet extends HttpServlet {
                 }
 
                 response.getWriter().write(jsonArray.toString());
-                break;
+        break;
 
             default:
                 response.getWriter().write("Accion no valida.");
                 break;
         }
     }
-    }
+    
     
     protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
         String action = request.getParameter("action");
@@ -91,4 +100,7 @@ public class DepartamentoControllerServlet extends HttpServlet {
                 } catch (ParametrosInvalidosExcepcion | UsuarioYaExisteExcepcion e) {
                     response.getWriter().write("Error al crear el departamento: " + e.getMessage());
                 }
+
+}
+}
 }

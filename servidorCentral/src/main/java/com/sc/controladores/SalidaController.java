@@ -50,7 +50,7 @@ public class SalidaController implements ISalidaController {
 	    }
 
 	    // Utilizar el constructor adecuado de salida
-	    salida nuevaSalida = new salida(nombre, capacidad, fechaAlta, fechaSalida, lugarSalida);
+	    salida nuevaSalida = new salida(nombre, capacidad, fechaAlta, fechaSalida, lugarSalida, new ArrayList<>());
 	    
 	    nuevaSalida.addActividad(a);
 	    a.addSalida(nuevaSalida);

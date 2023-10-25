@@ -1,13 +1,19 @@
 import com.github.javafaker.Faker;
+import com.sc.entidades.actividad;
+import com.sc.entidades.departamento;
+import com.sc.entidades.inscripcion;
+import com.sc.entidades.paquete;
+import com.sc.entidades.proveedor;
+import com.sc.entidades.salida;
+import com.sc.entidades.turista;
 
 import javax.persistence.EntityManager;
 import javax.persistence.EntityManagerFactory;
 import javax.persistence.Persistence;
 import java.time.LocalDate;
 import java.util.ArrayList;
-import java.util.List;
 
-public class SeedData {
+public class seed_data {
 
     public static void main(String[] args) {
         // Crear el EntityManagerFactory usando la unidad de persistencia "PA2023"

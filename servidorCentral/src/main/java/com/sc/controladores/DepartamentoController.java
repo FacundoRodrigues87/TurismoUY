@@ -31,7 +31,7 @@ public class DepartamentoController implements IDepartamentoController {
             throw new UsuarioYaExisteExcepcion("El departamento " + nombre + " ya existe");
         }
 
-        departamento depto = new departamento(nombre, descripcion, url);
+        departamento depto = new departamento(nombre, descripcion, url, new ArrayList<>());
         dm.addDepartamento(depto);
     };
 

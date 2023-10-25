@@ -43,7 +43,7 @@ public class PaqueteController implements IPaqueteController {
         LocalDate fechaActual = LocalDate.now();
 
         // log.warning("FechaActual: " + fechaActual.getYear() + "/" + fechaActual.getMonthValue() + "/" + fechaActual.getDayOfMonth());
-        paquete = new paquete(nombre, descuento, descripcion, periodoVal, LocalDate.of(fechaActual.getYear(), fechaActual.getMonthValue(), fechaActual.getDayOfMonth()));
+        paquete = new paquete(nombre, descuento, descripcion, LocalDate.of(fechaActual.getYear(), fechaActual.getMonthValue(), fechaActual.getDayOfMonth()));
         pm.addPaquete(paquete);
     };
 
