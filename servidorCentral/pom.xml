@@ -29,7 +29,7 @@
 		<dependency>
 			<groupId>org.postgresql</groupId>
 			<artifactId>postgresql</artifactId>
-			<version>42.2.19</version>
+			<version>42.6.0</version>
 		</dependency>
 		<!-- API, java.xml.bind module -->
 		<dependency>
