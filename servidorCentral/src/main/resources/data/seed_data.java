@@ -28,13 +28,13 @@ public class seed_data {
         // Crear instancias de Faker
         Faker faker = new Faker();
 
-        // Crear y persistir instancias de departamento
+        /* Crear y persistir instancias de departamento
         departamento departamento1 = new departamento(faker.company().name(), faker.lorem().sentence(), faker.internet().url(), new ArrayList<>());
         departamento departamento2 = new departamento(faker.company().name(), faker.lorem().sentence(), faker.internet().url(), new ArrayList<>());
 
         em.persist(departamento1);
         em.persist(departamento2);
-
+*/
         // Crear y persistir instancias de proveedor
         proveedor proveedor1 = new proveedor(faker.name().username(), faker.name().firstName(), faker.name().lastName(), faker.internet().emailAddress(), faker.lorem().sentence(), faker.internet().url(), LocalDate.now());
         proveedor proveedor2 = new proveedor(faker.name().username(), faker.name().firstName(), faker.name().lastName(), faker.internet().emailAddress(), faker.lorem().sentence(), faker.internet().url(), LocalDate.now());
@@ -42,7 +42,7 @@ public class seed_data {
         em.persist(proveedor1);
         em.persist(proveedor2);
 
-        // Crear y persistir instancias de paquete
+       /* Crear y persistir instancias de paquete
         paquete paquete1 = new paquete(faker.lorem().word(), faker.number().numberBetween(5, 30), faker.lorem().sentence(), LocalDate.now().plusMonths(6));
         paquete paquete2 = new paquete(faker.lorem().word(), faker.number().numberBetween(5, 30), faker.lorem().sentence(), LocalDate.now().plusMonths(6));
 
@@ -55,7 +55,7 @@ public class seed_data {
 
         em.persist(salida1);
         em.persist(salida2);
-
+*/
         // Crear y persistir instancias de inscripcion
         inscripcion inscripcion1 = new inscripcion(LocalDate.now(), faker.number().numberBetween(1, 5), faker.number().numberBetween(10, 100));
         inscripcion inscripcion2 = new inscripcion(LocalDate.now(), faker.number().numberBetween(1, 5), faker.number().numberBetween(10, 100));
@@ -70,7 +70,7 @@ public class seed_data {
         em.persist(turista1);
         em.persist(turista2);
 
-        // Crear y persistir instancias de actividad con datos ficticios
+        /* Crear y persistir instancias de actividad con datos ficticios
         actividad actividad1 = new actividad(faker.book().title(), faker.lorem().paragraph(), faker.number().numberBetween(1, 10), faker.number().numberBetween(50, 500), faker.address().city(), LocalDate.now(), departamento1, proveedor1);
         actividad actividad2 = new actividad(faker.book().title(), faker.lorem().paragraph(), faker.number().numberBetween(1, 10), faker.number().numberBetween(50, 500), faker.address().city(), LocalDate.now(), departamento2, proveedor2);
 
@@ -95,7 +95,7 @@ public class seed_data {
 		salida2.getActividades().add(actividad2);
 
 
-
+*/
 
         // Confirmar la transacción
         em.getTransaction().commit();

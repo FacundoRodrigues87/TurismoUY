@@ -7,15 +7,14 @@
     <packaging>jar</packaging>
     <dependencies>
         <dependency>
+        <groupId>com.serverCentral</groupId>
+        <artifactId>servidorCentral</artifactId>
+        <version>0.0.1-SNAPSHOT</version>
+    </dependency>
+        <dependency>
             <groupId>jakarta.platform</groupId>
             <artifactId>jakarta.jakartaee-api</artifactId>
             <version>10.0.0</version>
-            <type>jar</type>
-        </dependency>
-        <dependency>
-            <groupId>com.serverCentral</groupId>
-            <artifactId>servidorCentral</artifactId>
-            <version>0.0.1-SNAPSHOT</version>
             <type>jar</type>
         </dependency>
         <dependency>
