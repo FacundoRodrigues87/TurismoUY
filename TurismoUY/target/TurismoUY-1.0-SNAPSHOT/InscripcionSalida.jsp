@@ -54,7 +54,7 @@
 <body>
 <jsp:include page="/Header.jsp" />
     <div id="container">
-        <h2>Formulario de Creación de Actividad</h2>
+        <h2>Formulario de Inscripcion de Salida</h2>
         <form id="inscripcion-form" action="inscripcion" method="post">
     <input type="hidden" name="action" value="crear">
     
