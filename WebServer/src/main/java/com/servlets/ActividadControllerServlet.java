@@ -57,8 +57,9 @@ public class ActividadControllerServlet extends HttpServlet {
             
         } else if (action.equalsIgnoreCase("getAll")) {
             List<dataActividad> actividades = actividadController.getAllActividades();
-            responseStr = actividades.toString();
-            
+            request.setAttribute("actividades", actividades);
+            request.getRequestDispatcher("/com.web/ListarActividades.jsp").
+            forward(request, response);
             /**
  * Caso de uso: Obtener Actividades por Departamento
  * @implNote Permite obtener una lista de actividades pertenecientes a un departamento específico.

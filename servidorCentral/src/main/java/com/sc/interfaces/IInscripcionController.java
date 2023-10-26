@@ -11,5 +11,5 @@ import com.sc.excepciones.UsuarioYaExisteExcepcion;
 public interface IInscripcionController {
 	public abstract void crearInscripcion(LocalDate fecha, int cant, String nombreTursita, String nombreSalida, String nombreAct) throws ParametrosInvalidosExcepcion, UsuarioYaExisteExcepcion, UsuarioNoExisteExcepcion;;
 	public abstract int calcularCosto(salida salida, String nombreAct, int cant);
-        public abstract salida convertToSalida (String name);
+        public salida convertToSalida (String name);
 }

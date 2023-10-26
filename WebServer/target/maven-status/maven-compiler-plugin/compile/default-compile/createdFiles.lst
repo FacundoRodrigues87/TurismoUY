@@ -1,1 +1,2 @@
-com\turismouy\webserver\WebServer.class
+com\servlets\ActividadControllerServlet.class
+com\servlets\PaqueteServlet.class
